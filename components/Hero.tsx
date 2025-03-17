@@ -8,7 +8,7 @@ export default function Hero() {
   const [isOpen, setIsOpen] = useState(false);
 
   const images = [
-    "/home.png",
+    "/home.jpg",
     "/interior1.png",
     "/interior2.png",
     "/interior3.png",

@@ -25,7 +25,7 @@ export default function Home() {
         <LinkButton
           text="Book on Booking.com"
           icon={<TbBrandBooking />}
-          link="https://www.booking.com/hotel-name"
+          link="https://www.booking.com/"
           bgColor="bg-blue-600"
         />
         <LinkButton
