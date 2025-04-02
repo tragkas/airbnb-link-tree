@@ -4,16 +4,13 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-export default function Hero() {
-  const [isOpen, setIsOpen] = useState(false);
+interface HeroProps {
+  title: string;
+  images: string[];
+}
 
-  const images = [
-    "/home.jpg",
-    "/interior1.png",
-    "/interior2.png",
-    "/interior3.png",
-    "/interior4.png",
-  ];
+export default function Hero({ title, images }: HeroProps) {
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = useCallback(() => setIsOpen((prev) => !prev), []);
 
@@ -22,14 +19,14 @@ export default function Hero() {
       {/* Main Image - Click to Open Carousel */}
       <Image
         src={images[0]}
-        alt="Main view of Cozy Beachfront Villa"
+        alt={`Main view of ${title}`}
         width={400}
         height={300}
         priority
         className="rounded-2xl shadow-lg cursor-pointer"
         onClick={toggleModal}
       />
-      <h1 className="text-2xl text-black font-bold mt-4">🏡 Cozy Beachfront Villa</h1>
+      <h1 className="text-2xl text-black font-bold mt-4">🏡 {title}</h1>
 
       {/* Modal with Carousel */}
       {isOpen && (
@@ -43,7 +40,7 @@ export default function Hero() {
             {/* Close Button */}
             <button
               onClick={toggleModal}
-              className="absolute top-2 right-4 text-black text-3xl z-10"
+              className="absolute top-2 right-4 text-white text-3xl z-10"
               aria-label="Close gallery"
             >
               &times;
@@ -61,7 +58,7 @@ export default function Hero() {
                 <div key={index}>
                   <Image
                     src={src}
-                    alt={`View ${index + 1} of the Cozy Beachfront Villa`}
+                    alt={`View ${index + 1} of ${title}`}
                     width={600}
                     height={400}
                     className="rounded-xl"

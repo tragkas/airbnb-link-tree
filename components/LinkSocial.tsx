@@ -1,15 +1,28 @@
-import React, { JSX } from "react";
+import React, { ReactNode } from "react";
 
-export default function LinkSocial({ icon, link }: { icon: JSX.Element; link: string }) {
-    return (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-black text-2xl hover:text-gray-600 transition"
-      >
-        {icon}
-      </a>
-    );
-  }
-  
+interface LinkSocialProps {
+  icon: ReactNode;
+  link: string;
+  textColor?: string;
+  hoverColor?: string;
+  className?: string;
+}
+
+export default function LinkSocial({
+  icon,
+  link,
+  textColor = "text-black",
+  hoverColor = "hover:text-gray-600",
+  className = "",
+}: LinkSocialProps) {
+  return (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`${textColor} text-2xl ${hoverColor} transition ${className}`}
+    >
+      {icon}
+    </a>
+  );
+}
