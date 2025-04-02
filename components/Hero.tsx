@@ -35,12 +35,17 @@ export default function Hero({ title, images }: HeroProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Image gallery modal"
+          onClick={toggleModal} // Click outside to close
         >
-          <div className="relative w-[90%] max-w-2xl p-4 bg-black rounded-lg">
+          {/* Prevent clicks inside modal from closing */}
+          <div
+            className="relative w-[90%] max-w-2xl p-4 bg-black rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Close Button */}
             <button
               onClick={toggleModal}
-              className="absolute top-2 right-4 text-white text-3xl z-10"
+              className="absolute top-4 right-6 text-white text-4xl z-10 cursor-pointer"
               aria-label="Close gallery"
             >
               &times;

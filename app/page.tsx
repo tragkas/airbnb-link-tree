@@ -51,7 +51,7 @@ export default function Home() {
         <LinkButton
           text="Download PDF Guide"
           icon={<HiDocumentText />}
-          link="/guide.pdf"
+          link="/welcome-guide.pdf"
           bgColor="bg-blue-300"
           hoverColor="hover:bg-blue-200"
         />
