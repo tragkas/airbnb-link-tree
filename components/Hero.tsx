@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import { withBasePath } from "../lib/basePath";
+
 interface HeroProps {
   title: string;
   images: string[];
@@ -18,7 +20,7 @@ export default function Hero({ title, images }: HeroProps) {
     <div className="flex flex-col items-center">
       {/* Main Image - Click to Open Carousel */}
       <Image
-        src={images[0]}
+        src={withBasePath(images[0])}
         alt={`Main view of ${title}`}
         width={400}
         height={300}
@@ -62,7 +64,7 @@ export default function Hero({ title, images }: HeroProps) {
               {images.map((src, index) => (
                 <div key={index}>
                   <Image
-                    src={src}
+                    src={withBasePath(src)}
                     alt={`View ${index + 1} of ${title}`}
                     width={600}
                     height={400}
